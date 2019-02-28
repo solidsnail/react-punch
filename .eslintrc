@@ -1,0 +1,21 @@
+{
+    "env": {
+        "amd": true,
+        "browser": true,
+        "node": true
+    },
+    "parser": "babel-eslint",
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "plugins": [
+        "react-hooks"
+    ],
+    "rules": {
+        "react/display-name": "off",
+        "react/prop-types": "off",
+        "no-unused-vars": "warn",
+        "react-hooks/rules-of-hooks": "error"
+    }
+}
