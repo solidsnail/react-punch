@@ -513,7 +513,7 @@ export const samples = {
 
   },
   text: {
-    gradient: (colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"], duration = 2000) => {
+    rainbow: (colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"], duration = 2000) => {
       const frames = {};
       colors.map((color, i) => {
         frames[`${((i + 1) / colors.length) * 100}%`] = { color };
@@ -522,6 +522,28 @@ export const samples = {
         frames,
         duration,
         direction: "alternate",
+        loop: "infinite",
+      })
+    },
+    gradient: (colors = ["red", "yellow"], angle = 90, duration = 10000) => {
+      return ({
+        frames: {
+          from: {
+            filter: "hue-rotate(0deg)",
+            backgroundImage: `linear-gradient(${angle}deg,${colors[0]},${colors[1]})`,
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent'
+          },
+          to: {
+            filter: "hue-rotate(360deg)",
+            backgroundImage: `linear-gradient(${angle}deg,${colors[0]},${colors[1]})`,
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent'
+          },
+        },
+        duration,
+        easing: "linear",
+        direction: "reverse",
         loop: "infinite",
       })
     },

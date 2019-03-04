@@ -72,7 +72,8 @@ export const samples: {
 
     },
     text: {
-        gradient(colors: string[], duration: number): void,
+        rainbow(colors: string[], duration: number): void,
+        gradient(colors: [string, string], angle: number, duration: number): void,
     },
     border: {
         draw(color: string, thickness: number, duration: number): void,

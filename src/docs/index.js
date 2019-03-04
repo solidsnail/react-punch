@@ -24,7 +24,7 @@ const Logo = function () {
                 textAlign: "center",
             }}>
             {animateText("React", samples.emphasis.jello(), 0)}
-            {animateText("Punch", samples.text.gradient())}
+            {animateText("Punch", samples.text.gradient(), 0)}
         </h1 >
     )
 }
