@@ -3,11 +3,9 @@
   "version": "0.0.1",
   "description": "👊Chainable animation hooks 👊",
   "main": "dist/index.js",
-  "types": "types/index.d.ts",
+  "types": "src/lib/index.d.ts",
   "files": [
-    "dist",
-    "src/lib",
-    "types"
+    "dist"
   ],
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.docs.js --mode development",
