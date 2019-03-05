@@ -1,11 +1,11 @@
 import React from "react";
 import { animateClass, animateText, samples } from "../../lib";
 
-export default function () {
+export default function ({ className }) {
     const duration = 800;
     const delay = 500;
     return (
-        <div style={{ position: "relative", transform: "skewX(-15deg) rotate(-9deg)" }}>
+        <div className={className} style={{ position: "relative", transform: "skewX(-15deg) rotate(-9deg)" }}>
             <h1
                 className={animateClass(
                     {

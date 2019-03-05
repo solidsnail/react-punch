@@ -18,7 +18,7 @@ function Documentation() {
                     frames: { from: { transform: "scale(1,1)", opacity: 1 }, to: { transform: "scale(0,0)", opacity: 0 } }
                 });
                 animateElement(document.getElementById("menu"), {
-                    frames: { from: { transformOrigin: "top left", transform: "skewX(0deg)", left: -140 }, to: { transformOrigin: "top left", transform: "skewX(-5deg)", left: 0 } },
+                    frames: { from: { transformOrigin: "top left", transform: "skewX(0deg)", left: -170 }, to: { transformOrigin: "top left", transform: "skewX(-5deg)", left: 0 } },
                     duration: 500
                 });
             },

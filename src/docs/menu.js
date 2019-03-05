@@ -18,8 +18,8 @@ const style = css({
         position: "relative",
         height: "100%",
         userSelect: "none",
-        left: -140,
-        width: 140,
+        left: -170,
+        width: 170,
         top: -56,
         padding: 25,
         margin: 0,
@@ -48,7 +48,9 @@ export default function () {
                         id="menu"
                     >
                         <li role="button" onClick={() => setActivePage(1)}>About</li>
-                        <li role="button">API</li>
+                        <li role="button" onClick={() => setActivePage(2)}>Usage</li>
+                        <li role="button" onClick={() => setActivePage(3)}>Examples</li>
+                        <li role="button" onClick={() => setActivePage(4)}>API</li>
                     </ul>
                 </div >
             )}

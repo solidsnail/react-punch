@@ -4,7 +4,7 @@ import { animateClass, animateText, samples } from "../../lib";
 export default function ({ className }) {
     return (
         <div className={className}>
-            About
+            API
         </div >
     )
 }

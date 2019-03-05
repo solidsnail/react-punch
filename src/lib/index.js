@@ -1,5 +1,7 @@
 import React, { useRef, useEffect } from "react";
-import { css, keyframes } from "emotion";
+import { css, keyframes, injectGlobal } from "emotion";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+
 import samples from "./samples";
 import { isElement } from "./helpers";
 
@@ -99,4 +101,44 @@ export const animateText = function (
     return React.createElement(tag, { ref, style: { ...style, display: "inline-block" } }, letter)
   };
   return letter_delay > 0 ? text.split("").map((letter, i) => <Letter key={i} letter={letter} delay={letter_delay * i} />) : <Letter letter={text} nosplit delay={delay} />
+}
+
+export const AnimationGroup = function ({ show = false, animation = samples.entrance.zoom(), isList = false, style = {}, children }) {
+  const toggleCSS = {
+    display: !isList ? show ? "block" : "none" : "block",
+    "&.toggle-enter": {
+      ...animation.frames.from,
+    },
+    "&.toggle-enter.toggle-enter-active": {
+      ...animation.frames.to,
+      transition: `all ${animation.duration}ms ${animation.easing}`,
+    },
+    "&.toggle-leave": {
+      ...animation.frames.to,
+    },
+    "&.toggle-leave.toggle-leave-active": {
+      ...animation.frames.from,
+      transition: `all ${animation.duration}ms ${animation.easing}`,
+    },
+    ...style,
+  }
+  return (
+    isList
+      ?
+      <ReactCSSTransitionGroup
+        component="div"
+        transitionName="toggle"
+        transitionEnterTimeout={animation.duration}
+        transitionLeaveTimeout={animation.duration}>
+        {children ? children.map(child => React.cloneElement(child, { className: `${css(toggleCSS)} ${child.props.className || ""}`, style: { ...child.props.style, ...style } })) : []}
+      </ReactCSSTransitionGroup>
+      :
+      <ReactCSSTransitionGroup
+        component="div"
+        transitionName="toggle"
+        transitionEnterTimeout={animation.duration}
+        transitionLeaveTimeout={animation.duration}>
+        {show && React.cloneElement(children, { className: `${css(toggleCSS)} ${children.props.className || ""}`, style: { ...children.props.style, ...style } })}
+      </ReactCSSTransitionGroup>
+  )
 }
