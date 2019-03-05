@@ -1,5 +1,5 @@
 import React from "react";
-import { animateClass, animateText, samples } from "../lib";
+import { animateClass, animateText, samples } from "../../lib";
 
 export default function () {
     const duration = 800;

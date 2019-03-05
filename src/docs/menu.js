@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { animateClass, animateText, samples, animateElement } from "../lib";
 import { css } from "emotion";
+import { Context } from ".";
 
 const style = css({
     position: "absolute", zIndex: 10, top: 0, left: 0, height: "100%",
@@ -32,31 +33,25 @@ const style = css({
 })
 
 
-let trigger, menu;
 export default function () {
-    const openMenu = function () {
-        animateElement(trigger, {
-            frames: { from: { transform: "scale(1,1)", opacity: 1 }, to: { transform: "scale(0,0)", opacity: 0 } }
-        });
-        animateElement(menu, {
-            frames: { from: { transformOrigin: "top left", transform: "skewX(0deg)", left: -140 }, to: { transformOrigin: "top left", transform: "skewX(-5deg)", left: 0 } },
-            duration: 500
-        });
-    }
     return (
-        <div className={style}>
-            <button
-                ref={e => trigger = e}
-                onClick={openMenu}
-                onMouseEnter={() => animateElement(trigger, samples.emphasis.jello())}>
-                {animateText("|||", samples.entrance.flip())}
-            </button>
-            <ul
-                ref={e => menu = e}
-            >
-                <li role="button">About</li>
-                <li role="button">API</li>
-            </ul>
-        </div >
+        <Context.Consumer>
+            {({ openMenu, shakeTrigger, setActivePage }) => (
+                <div className={style}>
+                    <button
+                        id="menu-trigger"
+                        onClick={openMenu}
+                        onMouseEnter={shakeTrigger}>
+                        {animateText("|||", samples.entrance.flip())}
+                    </button>
+                    <ul
+                        id="menu"
+                    >
+                        <li role="button" onClick={() => setActivePage(1)}>About</li>
+                        <li role="button">API</li>
+                    </ul>
+                </div >
+            )}
+        </Context.Consumer>
     )
 }
