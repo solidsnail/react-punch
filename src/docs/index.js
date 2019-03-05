@@ -1,40 +1,22 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import { animateElement, animateClass, animateText, samples } from "../lib";
+import "./global";
+import Logo from "./logo";
+import Menu from "./menu";
 
 
-const Logo = function () {
 
-    return (
-        <h1
-            className={animateClass({
-                frames: {
-                    from: {
-                        // clipPath: "inset(0px 0px 200px 0px)",
-                    },
-                    to: {
-                        // clipPath: "inset(0px 0px 0px 0px)",
-                    }
-                }
-            })}
-            style={{
-                fontFamily: "Anton",
-                fontWeight: "normal",
-                fontSize: "10vw",
-                textAlign: "center",
-            }}>
-            {animateText("React", samples.emphasis.jello(), 0)}
-            {animateText("Punch", samples.text.gradient(), 0)}
-        </h1 >
-    )
-}
 
 function Documentation() {
+    const [loaded, setLoaded] = useState(false);
+    useEffect(() => {
+        setLoaded(true);
+    }, []);
     return (
-        <div>
+        loaded && <React.Fragment>
+            <Menu />
             <Logo />
-            <div className={animateClass(samples.border.draw("red", 2))} >Typography</div>
-        </div>
+        </React.Fragment>
     )
 }
 

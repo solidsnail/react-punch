@@ -31,6 +31,8 @@ export function animateText(
     },
     letter_delay: number,
     tag: keyof ReactHTML,
+    delay: number,
+    style: CSSObject,
 ): React.ReactElement;
 export function animateClass(
     animation: {
@@ -44,7 +46,19 @@ export function animateClass(
         loop: number | "infinite",
         mode: "none" | "forwards" | "backwards" | "both",
         direction: "normal" | "reverse" | "alternate" | "alternate-reverse",
-    },
+    } | {
+        frames: {
+            from: Interpolation,
+            to: Interpolation,
+            [key: string]: Interpolation,
+        },
+        duration: number,
+        easing: "ease" | "ease-in" | "ease-out" | "ease-in-out" | "linear" | "step-start" | "step-end" | Function,
+        loop: number | "infinite",
+        mode: "none" | "forwards" | "backwards" | "both",
+        direction: "normal" | "reverse" | "alternate" | "alternate-reverse",
+    }[],
+    delay: number | number[],
 ): string;
 export const samples: {
     entrance: {
@@ -76,6 +90,6 @@ export const samples: {
         gradient(colors: [string, string], angle: number, duration: number): void,
     },
     border: {
-        draw(color: string, thickness: number, duration: number): void,
+        draw(color: string, side: "all" | "top" | "right" | "bottom" | "left", thickness: number, duration: number): void,
     },
 }
