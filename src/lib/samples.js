@@ -1,6 +1,6 @@
 export default {
     entrance: {
-        fade: (easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000) => {
+        fade: (easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000, loop = 1) => {
             return ({
                 frames: {
                     from: { opacity: 0 },
@@ -8,9 +8,11 @@ export default {
                 },
                 duration,
                 easing,
+                direction: "alternate",
+                loop,
             })
         },
-        flyin: (direction = "top", distance = 200, easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 500) => {
+        flyin: (direction = "top", distance = 200, easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 500, loop = 1) => {
             const translateFrom = {
                 top: `translateY(${distance}px)`,
                 bottom: `translateY(${-distance}px)`,
@@ -37,9 +39,11 @@ export default {
                 duration,
                 mode: "both",
                 easing,
+                direction: "alternate",
+                loop,
             })
         },
-        split: (direction = "vertical", easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000) => {
+        split: (direction = "vertical", easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000, loop = 1) => {
             const translateFrom = {
                 vertical: `inset(50% 0% 50% 0%)`,
                 horizontal: `inset(0% 50% 0% 50%)`,
@@ -60,9 +64,10 @@ export default {
                 duration,
                 mode: "both",
                 easing,
+                loop,
             })
         },
-        wipe: (direction = "top", color = "black", easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 3000) => {
+        wipe: (direction = "top", color = "black", easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 3000, loop = 1) => {
             const translate = {
                 top: (i) => `linear-gradient(to top, ${color}, transparent ${i * 3}%)`,
                 bottom: (i) => `linear-gradient(to bottom, ${color}, transparent ${i * 3}%)`,
@@ -81,9 +86,11 @@ export default {
                 frames,
                 duration,
                 easing,
+                direction: "alternate",
+                loop,
             })
         },
-        shape: (type = "triangle", easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 2000) => {
+        shape: (type = "triangle", easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 2000, loop = 1) => {
             const translateFrom = {
                 triangle: `polygon(50% 50%, 45% 65%, 55% 65%)`,
                 rhombus: `polygon(50% 45%, 55% 50%, 50% 55%, 45% 50%)`,
@@ -109,9 +116,11 @@ export default {
                 },
                 duration,
                 easing,
+                direction: "alternate",
+                loop,
             })
         },
-        zoom: (direction = "center", distance = 100, easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000) => {
+        zoom: (direction = "center", distance = 100, easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000, loop = 1) => {
             const translateFrom = {
                 center: `translate(0px,0px)`,
                 top: `translate(0px,${distance}px)`,
@@ -149,9 +158,11 @@ export default {
                 duration,
                 mode: "both",
                 easing,
+                direction: "alternate",
+                loop,
             })
         },
-        bounce: (direction = "center", distance = 300, easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000) => {
+        bounce: (direction = "center", distance = 300, easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000, loop = 1) => {
             const translateFrom = (d = null) => ({
                 center: `translate(0px,0px)`,
                 top: `translate(0px,${d || distance}px)`,
@@ -181,9 +192,11 @@ export default {
                 },
                 duration,
                 easing,
+                direction: "alternate",
+                loop,
             })
         },
-        flip: (direction = "vertical", easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000) => {
+        flip: (direction = "vertical", easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000, loop = 1) => {
             const translateFrom = {
                 vertical: `perspective(400px) rotate3d(0, 1, 0, 90deg)`,
                 horizontal: `perspective(400px) rotate3d(1, 0, 0, 90deg)`,
@@ -205,10 +218,12 @@ export default {
                 },
                 duration,
                 mode: "both",
+                direction: "alternate",
                 easing,
+                loop,
             })
         },
-        slide: (direction = "top", distance = 100, easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 500) => {
+        slide: (direction = "top", distance = 100, easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 500, loop = 1) => {
             const translateFrom = {
                 top: `translateY(${distance}px)`,
                 bottom: `translateY(${-distance}px)`,
@@ -234,7 +249,9 @@ export default {
                 },
                 duration,
                 mode: "both",
+                direction: "alternate",
                 easing,
+                loop,
             })
         },
     },
@@ -242,7 +259,7 @@ export default {
 
     },
     emphasis: {
-        bounce: (distance = 30, easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000) => {
+        bounce: (distance = 30, easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000, loop = 1) => {
             return ({
                 frames: {
                     from: {
@@ -275,9 +292,10 @@ export default {
                 },
                 duration,
                 easing,
+                loop,
             })
         },
-        flash: (easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000) => {
+        flash: (easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000, loop = 1) => {
             return ({
                 frames: {
                     from: {
@@ -298,9 +316,10 @@ export default {
                 },
                 duration,
                 easing,
+                loop,
             })
         },
-        pulse: (scale = 0.1, easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000) => {
+        pulse: (scale = 0.1, easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000, loop = 1) => {
             return ({
                 frames: {
                     from: {
@@ -315,9 +334,10 @@ export default {
                 },
                 duration,
                 easing,
+                loop,
             })
         },
-        rubber: (scale = 0.25, easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000) => {
+        rubber: (scale = 0.25, easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000, loop = 1) => {
             return ({
                 frames: {
                     from: {
@@ -344,9 +364,10 @@ export default {
                 },
                 duration,
                 easing,
+                loop,
             })
         },
-        shake: (scale = 10, easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000) => {
+        shake: (scale = 10, easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000, loop = 1) => {
             return ({
                 frames: {
                     from: {
@@ -385,6 +406,7 @@ export default {
                 },
                 duration,
                 easing,
+                loop,
             })
         },
         jello: (easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000, loop = 1) => {

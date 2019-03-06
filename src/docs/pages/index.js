@@ -21,7 +21,20 @@ export default function () {
             <div className={style}>
                 <AnimationGroup show={activePage === 0}><Logo /></AnimationGroup>
                 <AnimationGroup show={activePage === 1}><About /></AnimationGroup>
-                <AnimationGroup show={activePage === 2}><Usage /></AnimationGroup>
+                <AnimationGroup show={activePage === 2} animation={{
+                    frames: {
+                        from: {
+                            lineHeight: 0,
+                            overflow: "hidden",
+                        },
+                        to: {
+                            lineHeight: 1,
+                            overflow: "hidden",
+                        },
+                    },
+                    duration: 100,
+                    easing: "linear"
+                }}><Usage /></AnimationGroup>
                 <AnimationGroup show={activePage === 3}><Examples /></AnimationGroup>
                 <AnimationGroup show={activePage === 4}><API /></AnimationGroup>
             </div>

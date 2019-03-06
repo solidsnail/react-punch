@@ -12,7 +12,7 @@ function Documentation() {
     const [state, setState] = useState({});
     useEffect(() => {
         setState({
-            activePage: 0,
+            activePage: 2,
             openMenu: function () {
                 animateElement(document.getElementById("menu-trigger"), {
                     frames: { from: { transform: "scale(1,1)", opacity: 1 }, to: { transform: "scale(0,0)", opacity: 0 } }

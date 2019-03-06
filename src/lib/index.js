@@ -103,28 +103,28 @@ export const animateText = function (
   return letter_delay > 0 ? text.split("").map((letter, i) => <Letter key={i} letter={letter} delay={letter_delay * i} />) : <Letter letter={text} nosplit delay={delay} />
 }
 
-export const AnimationGroup = function ({ show = false, animation = samples.entrance.zoom(), isList = false, style = {}, children }) {
+export const AnimationGroup = function ({ show = false, animation = samples.entrance.zoom("center", 200, "ease", 500), isList = false, style = {}, children, timeout = 1000 }) {
   const toggleCSS = {
     "&.toggle-appear": {
       ...animation.frames.from,
     },
     "&.toggle-appear.toggle-appear-active": {
       ...animation.frames.to,
-      transition: `all ${animation.duration}ms ${animation.easing} ${animation.duration}ms`,
+      transition: `all ${animation.duration || 1000}ms ${animation.easing || "ease"} ${animation.duration || 1000}ms`,
     },
     "&.toggle-enter": {
       ...animation.frames.from,
     },
     "&.toggle-enter.toggle-enter-active": {
       ...animation.frames.to,
-      transition: `all ${animation.duration}ms ${animation.easing}`,
+      transition: `all ${animation.duration || 1000}ms ${animation.easing || "ease"}`,
     },
     "&.toggle-leave": {
       ...animation.frames.to,
     },
     "&.toggle-leave.toggle-leave-active": {
       ...animation.frames.from,
-      transition: `all ${animation.duration}ms ${animation.easing}`,
+      transition: `all ${animation.duration || 1000}ms ${animation.easing || "ease"}`,
     },
     ...style,
   }
@@ -133,7 +133,7 @@ export const AnimationGroup = function ({ show = false, animation = samples.entr
     if (show) {
       setTimeout(() => {
         setAppear(show);
-      }, animation.duration);
+      }, timeout);
     } else {
       setAppear(show);
     }
@@ -144,16 +144,16 @@ export const AnimationGroup = function ({ show = false, animation = samples.entr
       <ReactCSSTransitionGroup
         component="div"
         transitionName="toggle"
-        transitionEnterTimeout={animation.duration}
-        transitionLeaveTimeout={animation.duration}>
+        transitionEnterTimeout={animation.duration || 1000}
+        transitionLeaveTimeout={animation.duration || 1000}>
         {children ? children.map(child => React.cloneElement(child, { className: `${css(toggleCSS)} ${child.props.className || ""}`, style: { ...child.props.style, ...style } })) : []}
       </ReactCSSTransitionGroup>
       :
       <ReactCSSTransitionGroup
         component="div"
         transitionName="toggle"
-        transitionEnterTimeout={animation.duration}
-        transitionLeaveTimeout={animation.duration}>
+        transitionEnterTimeout={animation.duration || 1000}
+        transitionLeaveTimeout={animation.duration || 1000}>
         {appear && React.cloneElement(children, { className: `${css(toggleCSS)} ${children.props.className || ""}`, style: { ...children.props.style, ...style } })}
       </ReactCSSTransitionGroup>
   )
