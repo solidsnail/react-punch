@@ -387,7 +387,7 @@ export default {
                 easing,
             })
         },
-        jello: (easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000) => {
+        jello: (easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000, loop = 1) => {
             return ({
                 frames: {
                     from: {
@@ -424,6 +424,7 @@ export default {
                 duration,
                 mode: "both",
                 easing,
+                loop,
             })
         },
     },

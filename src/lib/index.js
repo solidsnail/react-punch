@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from "react";
-import { css, keyframes, injectGlobal } from "emotion";
+import React, { useRef, useEffect, useState } from "react";
+import { css, keyframes } from "emotion";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 import samples from "./samples";
@@ -105,7 +105,13 @@ export const animateText = function (
 
 export const AnimationGroup = function ({ show = false, animation = samples.entrance.zoom(), isList = false, style = {}, children }) {
   const toggleCSS = {
-    display: !isList ? show ? "block" : "none" : "block",
+    "&.toggle-appear": {
+      ...animation.frames.from,
+    },
+    "&.toggle-appear.toggle-appear-active": {
+      ...animation.frames.to,
+      transition: `all ${animation.duration}ms ${animation.easing} ${animation.duration}ms`,
+    },
     "&.toggle-enter": {
       ...animation.frames.from,
     },
@@ -122,6 +128,16 @@ export const AnimationGroup = function ({ show = false, animation = samples.entr
     },
     ...style,
   }
+  const [appear, setAppear] = useState(false);
+  useEffect(() => {
+    if (show) {
+      setTimeout(() => {
+        setAppear(show);
+      }, animation.duration);
+    } else {
+      setAppear(show);
+    }
+  }, [show]);
   return (
     isList
       ?
@@ -138,7 +154,7 @@ export const AnimationGroup = function ({ show = false, animation = samples.entr
         transitionName="toggle"
         transitionEnterTimeout={animation.duration}
         transitionLeaveTimeout={animation.duration}>
-        {show && React.cloneElement(children, { className: `${css(toggleCSS)} ${children.props.className || ""}`, style: { ...children.props.style, ...style } })}
+        {appear && React.cloneElement(children, { className: `${css(toggleCSS)} ${children.props.className || ""}`, style: { ...children.props.style, ...style } })}
       </ReactCSSTransitionGroup>
   )
 }

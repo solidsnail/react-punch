@@ -80,7 +80,7 @@ export const samples: {
         pulse(scale: number, easing: "ease" | "ease-in" | "ease-out" | "ease-in-out" | "linear" | "step-start" | "step-end" | Function, duration: number): void,
         rubber(scale: number, easing: "ease" | "ease-in" | "ease-out" | "ease-in-out" | "linear" | "step-start" | "step-end" | Function, duration: number): void,
         shake(scale: number, easing: "ease" | "ease-in" | "ease-out" | "ease-in-out" | "linear" | "step-start" | "step-end" | Function, duration: number): void,
-        jello(easing: "ease" | "ease-in" | "ease-out" | "ease-in-out" | "linear" | "step-start" | "step-end" | Function, duration: number): void,
+        jello(easing: "ease" | "ease-in" | "ease-out" | "ease-in-out" | "linear" | "step-start" | "step-end" | Function, duration: number, loop: number): void,
     },
     motionpath: {
 
