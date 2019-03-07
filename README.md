@@ -99,3 +99,77 @@ import { animateText, samples } from "react-punch";
 <img alt="header" src="./src/textslide.gif" />
 </p>
 </details>
+
+### Exit
+
+<details><summary>Fade</summary>
+
+```jsx
+<b>{animateText("Hello World!",samples.entrance.fade())}</b>
+```
+<img alt="header" src="./src/textfadeexit.gif" />
+</p>
+</details>
+
+<details><summary>Flyin</summary>
+
+```jsx
+<b>{animateText("Hello World!",samples.entrance.flyin())}</b>
+```
+<img alt="header" src="./src/textflyinexit.gif" />
+</p>
+</details>
+
+<details><summary>Split</summary>
+
+```jsx
+<b>{animateText("Hello World!",samples.entrance.split())}</b>
+```
+<img alt="header" src="./src/textsplitexit.gif" />
+</p>
+</details>
+
+<details><summary>Wipe</summary>
+
+```jsx
+<b>{animateText("Hello World!",samples.entrance.wipe())}</b>
+```
+<img alt="header" src="./src/textwipeexit.gif" />
+</p>
+</details>
+
+<details><summary>Shape</summary>
+
+```jsx
+<b>{animateText("Hello World!",samples.entrance.shape())}</b>
+```
+<img alt="header" src="./src/textshapeexit.gif" />
+</p>
+</details>
+
+<details><summary>Zoom</summary>
+
+```jsx
+<b>{animateText("Hello World!",samples.entrance.zoom())}</b>
+```
+<img alt="header" src="./src/textzoomexit.gif" />
+</p>
+</details>
+
+<details><summary>Flip</summary>
+
+```jsx
+<b>{animateText("Hello World!",samples.entrance.flip())}</b>
+```
+<img alt="header" src="./src/textflipexit.gif" />
+</p>
+</details>
+
+<details><summary>Slide</summary>
+
+```jsx
+<b>{animateText("Hello World!",samples.entrance.slide())}</b>
+```
+<img alt="header" src="./src/textslideexit.gif" />
+</p>
+</details>
