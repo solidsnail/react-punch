@@ -10,6 +10,14 @@
 <b>0.1.0</b>
 </p>
 
+## Demos made
+
+<img alt="header" src="./src/assets/demoA.gif" /> |    
+--- | 
+Author: Me |
+Link:  https://mqkqw2n9qx.codesandbox.io/| 
+
+
 ## Usage
 
 ```cmd
