@@ -8,6 +8,7 @@ export default {
                 },
                 duration,
                 easing,
+                mode: "both",
                 direction: "alternate",
                 loop,
             })
