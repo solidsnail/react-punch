@@ -1,7 +1,7 @@
 {
   "name": "react-punch",
   "version": "0.0.3c",
-  "description": "👊Chainable animation hooks 👊",
+  "description": "A kinetic typography library for ReactJS",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [

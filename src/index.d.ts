@@ -2,6 +2,9 @@ import { Interpolation, CSSObject } from "create-emotion";
 
 
 declare module "react-punch" {
+    type TEasing = "ease" | "ease-in" | "ease-out" | "ease-in-out" | "linear" | "step-start" | "step-end" | Function
+    type TMode = "none" | "forwards" | "backwards" | "both"
+    type TDirection = "normal" | "reverse" | "alternate" | "alternate-reverse"
     interface IAnimation {
         frames: {
             from: Interpolation,
@@ -9,10 +12,10 @@ declare module "react-punch" {
             [key: string]: Interpolation,
         },
         duration: number,
-        easing: "ease" | "ease-in" | "ease-out" | "ease-in-out" | "linear" | "step-start" | "step-end" | Function,
+        easing: TEasing,
         loop: number | "infinite",
-        mode: "none" | "forwards" | "backwards" | "both",
-        direction: "normal" | "reverse" | "alternate" | "alternate-reverse",
+        mode: TMode,
+        direction: TDirection,
     }
     export function animateElement(
         element: React.ReactElement,
@@ -33,34 +36,34 @@ declare module "react-punch" {
                 [key: string]: Interpolation,
             },
             duration: number,
-            easing: "ease" | "ease-in" | "ease-out" | "ease-in-out" | "linear" | "step-start" | "step-end" | Function,
+            easing: TEasing,
             loop: number | "infinite",
-            mode: "none" | "forwards" | "backwards" | "both",
-            direction: "normal" | "reverse" | "alternate" | "alternate-reverse",
+            mode: TMode,
+            direction: TDirection,
         }[],
         delay: number | number[],
     ): string;
     export const samples: {
         entrance: {
-            fade(easing: "ease" | "ease-in" | "ease-out" | "ease-in-out" | "linear" | "step-start" | "step-end" | Function, duration: number, loop: number): void,
-            flyin(direction: "top" | "bottom" | "left" | "right", distance: number, easing: "ease" | "ease-in" | "ease-out" | "ease-in-out" | "linear" | "step-start" | "step-end" | Function, duration: number, loop: number): void,
-            split(direction: "vertical" | "horizontal", easing: "ease" | "ease-in" | "ease-out" | "ease-in-out" | "linear" | "step-start" | "step-end" | Function, duration: number, loop: number): void,
-            wipe(direction: "top" | "bottom" | "left" | "right", color: string, easing: "ease" | "ease-in" | "ease-out" | "ease-in-out" | "linear" | "step-start" | "step-end" | Function, duration: number, loop: number): void,
-            shape(type: "triangle" | "rhombus" | "pentagon" | "hexagon" | "heptagon" | "close" | "star", easing: "ease" | "ease-in" | "ease-out" | "ease-in-out" | "linear" | "step-start" | "step-end" | Function, duration: number, loop: number): void,
-            zoom(direction: "center" | "top" | "bottom" | "left" | "right", distance: number, easing: "ease" | "ease-in" | "ease-out" | "ease-in-out" | "linear" | "step-start" | "step-end" | Function, duration: number, loop: number): void,
-            flip(direction: "vertical" | "horizontal", easing: "ease" | "ease-in" | "ease-out" | "ease-in-out" | "linear" | "step-start" | "step-end" | Function, duration: number, loop: number): void,
-            slide(direction: "top" | "bottom" | "left" | "right", distance: number, easing: "ease" | "ease-in" | "ease-out" | "ease-in-out" | "linear" | "step-start" | "step-end" | Function, duration: number, loop: number): void,
+            fade(easing: TEasing, duration: number, loop: number): void,
+            flyin(direction: "top" | "bottom" | "left" | "right", distance: number, easing: TEasing, duration: number, loop: number): void,
+            split(direction: "vertical" | "horizontal", easing: TEasing, duration: number, loop: number): void,
+            wipe(direction: "top" | "bottom" | "left" | "right", color: string, easing: TEasing, duration: number, loop: number): void,
+            shape(type: "triangle" | "rhombus" | "pentagon" | "hexagon" | "heptagon" | "close" | "star", easing: TEasing, duration: number, loop: number): void,
+            zoom(direction: "center" | "top" | "bottom" | "left" | "right", distance: number, easing: TEasing, duration: number, loop: number): void,
+            flip(direction: "vertical" | "horizontal", easing: TEasing, duration: number, loop: number): void,
+            slide(direction: "top" | "bottom" | "left" | "right", distance: number, easing: TEasing, duration: number, loop: number): void,
         },
         exit: {
 
         },
         emphasis: {
-            bounce(distance: number, easing: "ease" | "ease-in" | "ease-out" | "ease-in-out" | "linear" | "step-start" | "step-end" | Function, duration: number, loop: number): void,
-            flash(easing: "ease" | "ease-in" | "ease-out" | "ease-in-out" | "linear" | "step-start" | "step-end" | Function, duration: number, loop: number): void,
-            pulse(scale: number, easing: "ease" | "ease-in" | "ease-out" | "ease-in-out" | "linear" | "step-start" | "step-end" | Function, duration: number, loop: number): void,
-            rubber(scale: number, easing: "ease" | "ease-in" | "ease-out" | "ease-in-out" | "linear" | "step-start" | "step-end" | Function, duration: number, loop: number): void,
-            shake(scale: number, easing: "ease" | "ease-in" | "ease-out" | "ease-in-out" | "linear" | "step-start" | "step-end" | Function, duration: number, loop: number): void,
-            jello(easing: "ease" | "ease-in" | "ease-out" | "ease-in-out" | "linear" | "step-start" | "step-end" | Function, duration: number, loop: number): void,
+            bounce(distance: number, easing: TEasing, duration: number, loop: number): void,
+            flash(easing: TEasing, duration: number, loop: number): void,
+            pulse(scale: number, easing: TEasing, duration: number, loop: number): void,
+            rubber(scale: number, easing: TEasing, duration: number, loop: number): void,
+            shake(scale: number, easing: TEasing, duration: number, loop: number): void,
+            jello(easing: TEasing, duration: number, loop: number): void,
         },
         motionpath: {
 
