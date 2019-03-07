@@ -1,5 +1,5 @@
 <p  align="center">
-<img alt="header" src="./src/logo.gif" />
+<img alt="header" src="./src/assets/logo.gif" />
 </p>
 
 <p  align="center">
@@ -22,7 +22,7 @@ import { animateText, samples } from "react-punch";
 <b>{animateText("Hello World!",samples.emphasis.bounce(10, "ease-out", 1000, "infinite"),100)}</b>
 ```
 <p  align="center">
-<img alt="demo" src="./src/helloworld.gif" />
+<img alt="demo" src="./src/assets/helloworld.gif" />
 </p>
 
 ## API
@@ -41,7 +41,7 @@ Triggers the animation on mount
         })}
       />
 ```
-<img alt="demo" src="./src/animateclass.gif" />
+<img alt="demo" src="./src/assets/animateclass.gif" />
 
 Triggers the animation on hover
 ```jsx
@@ -58,7 +58,7 @@ const [hover , setHover] = useState(false);
         })}
       />
 ```
-<img alt="demo" src="./src/animateclasshover.gif" />
+<img alt="demo" src="./src/assets/animateclasshover.gif" />
 </p>
 </details>
 
@@ -82,7 +82,7 @@ Triggers a succession of animations using a Promise
  <div id="ballA" />
  <div id="ballB" />
 ```
-<img alt="demo" src="./src/animateelementballs.gif" />
+<img alt="demo" src="./src/assets/animateelementballs.gif" />
 
 Or using simply the duration on the delay property
 ```jsx
@@ -101,7 +101,7 @@ Or using simply the duration on the delay property
  <div id="ballA" />
  <div id="ballB" />
 ```
-<img alt="demo" src="./src/animateelementballs.gif" />
+<img alt="demo" src="./src/assets/animateelementballs.gif" />
 </details>
 
 <details><summary>animateText</summary>
@@ -110,13 +110,13 @@ Triggers an animation on each letter of the text
 ```jsx
 <b>{animateText("Hello World!", samples.emphasis.rubber(), 500)}</b>
 ```
-<img alt="demo" src="./src/animatetextseparate.gif" />
+<img alt="demo" src="./src/assets/animatetextseparate.gif" />
 
 Or on the whole word
 ```jsx
 <b>{animateText("Hello World!", samples.emphasis.rubber(), 0)}</b>
 ```
-<img alt="demo" src="./src/animatetextword.gif" />
+<img alt="demo" src="./src/assets/animatetextword.gif" />
 </details>
 
 <details><summary>AnimationGroup</summary>
@@ -127,7 +127,7 @@ const [show , setShow] = useState(false);
 <button onClick={() => setShow(!show)}>Toggle</button>
 <AnimationGroup timeout={0} show={show}><div /></AnimationGroup>
 ```
-<img alt="demo" src="./src/animationgroup.gif" />
+<img alt="demo" src="./src/assets/animationgroup.gif" />
 </details>
 
 ## Samples
@@ -138,7 +138,7 @@ const [show , setShow] = useState(false);
 ```jsx
 <b>{animateText("Hello World!",samples.entrance.fade())}</b>
 ```
-<img alt="demo" src="./src/textfade.gif" />
+<img alt="demo" src="./src/assets/textfade.gif" />
 </p>
 </details>
 
@@ -147,7 +147,7 @@ const [show , setShow] = useState(false);
 ```jsx
 <b>{animateText("Hello World!",samples.entrance.flyin())}</b>
 ```
-<img alt="demo" src="./src/textflyin.gif" />
+<img alt="demo" src="./src/assets/textflyin.gif" />
 </p>
 </details>
 
@@ -156,7 +156,7 @@ const [show , setShow] = useState(false);
 ```jsx
 <b>{animateText("Hello World!",samples.entrance.split())}</b>
 ```
-<img alt="demo" src="./src/textsplit.gif" />
+<img alt="demo" src="./src/assets/textsplit.gif" />
 </p>
 </details>
 
@@ -165,7 +165,7 @@ const [show , setShow] = useState(false);
 ```jsx
 <b>{animateText("Hello World!",samples.entrance.wipe())}</b>
 ```
-<img alt="demo" src="./src/textwipe.gif" />
+<img alt="demo" src="./src/assets/textwipe.gif" />
 </p>
 </details>
 
@@ -174,7 +174,7 @@ const [show , setShow] = useState(false);
 ```jsx
 <b>{animateText("Hello World!",samples.entrance.shape())}</b>
 ```
-<img alt="demo" src="./src/textshape.gif" />
+<img alt="demo" src="./src/assets/textshape.gif" />
 </p>
 </details>
 
@@ -183,7 +183,7 @@ const [show , setShow] = useState(false);
 ```jsx
 <b>{animateText("Hello World!",samples.entrance.zoom())}</b>
 ```
-<img alt="demo" src="./src/textzoom.gif" />
+<img alt="demo" src="./src/assets/textzoom.gif" />
 </p>
 </details>
 
@@ -192,7 +192,7 @@ const [show , setShow] = useState(false);
 ```jsx
 <b>{animateText("Hello World!",samples.entrance.flip())}</b>
 ```
-<img alt="demo" src="./src/textflip.gif" />
+<img alt="demo" src="./src/assets/textflip.gif" />
 </p>
 </details>
 
@@ -201,7 +201,7 @@ const [show , setShow] = useState(false);
 ```jsx
 <b>{animateText("Hello World!",samples.entrance.slide())}</b>
 ```
-<img alt="demo" src="./src/textslide.gif" />
+<img alt="demo" src="./src/assets/textslide.gif" />
 </p>
 </details>
 
@@ -212,7 +212,7 @@ const [show , setShow] = useState(false);
 ```jsx
 <b>{animateText("Hello World!",samplesexit.fade())}</b>
 ```
-<img alt="demo" src="./src/textfadeexit.gif" />
+<img alt="demo" src="./src/assets/textfadeexit.gif" />
 </p>
 </details>
 
@@ -221,7 +221,7 @@ const [show , setShow] = useState(false);
 ```jsx
 <b>{animateText("Hello World!",samplesexit.flyin())}</b>
 ```
-<img alt="demo" src="./src/textflyinexit.gif" />
+<img alt="demo" src="./src/assets/textflyinexit.gif" />
 </p>
 </details>
 
@@ -230,7 +230,7 @@ const [show , setShow] = useState(false);
 ```jsx
 <b>{animateText("Hello World!",samplesexit.split())}</b>
 ```
-<img alt="demo" src="./src/textsplitexit.gif" />
+<img alt="demo" src="./src/assets/textsplitexit.gif" />
 </p>
 </details>
 
@@ -239,7 +239,7 @@ const [show , setShow] = useState(false);
 ```jsx
 <b>{animateText("Hello World!",samplesexit.wipe())}</b>
 ```
-<img alt="demo" src="./src/textwipeexit.gif" />
+<img alt="demo" src="./src/assets/textwipeexit.gif" />
 </p>
 </details>
 
@@ -248,7 +248,7 @@ const [show , setShow] = useState(false);
 ```jsx
 <b>{animateText("Hello World!",samplesexit.shape())}</b>
 ```
-<img alt="demo" src="./src/textshapeexit.gif" />
+<img alt="demo" src="./src/assets/textshapeexit.gif" />
 </p>
 </details>
 
@@ -257,7 +257,7 @@ const [show , setShow] = useState(false);
 ```jsx
 <b>{animateText("Hello World!",samplesexit.zoom())}</b>
 ```
-<img alt="demo" src="./src/textzoomexit.gif" />
+<img alt="demo" src="./src/assets/textzoomexit.gif" />
 </p>
 </details>
 
@@ -266,7 +266,7 @@ const [show , setShow] = useState(false);
 ```jsx
 <b>{animateText("Hello World!",samplesexit.flip())}</b>
 ```
-<img alt="demo" src="./src/textflipexit.gif" />
+<img alt="demo" src="./src/assets/textflipexit.gif" />
 </p>
 </details>
 
@@ -275,7 +275,7 @@ const [show , setShow] = useState(false);
 ```jsx
 <b>{animateText("Hello World!",samplesexit.slide())}</b>
 ```
-<img alt="demo" src="./src/textslideexit.gif" />
+<img alt="demo" src="./src/assets/textslideexit.gif" />
 </p>
 </details>
 
@@ -286,7 +286,7 @@ const [show , setShow] = useState(false);
 ```jsx
 <b>{animateText("Hello World!",samples.text.rainbow())}</b>
 ```
-<img alt="demo" src="./src/textrainbow.gif" />
+<img alt="demo" src="./src/assets/textrainbow.gif" />
 </p>
 </details>
 
@@ -295,7 +295,7 @@ const [show , setShow] = useState(false);
 ```jsx
 <b>{animateText("Hello World!",samples.text.gradient())}</b>
 ```
-<img alt="demo" src="./src/textgradient.gif" />
+<img alt="demo" src="./src/assets/textgradient.gif" />
 </p>
 </details>
 
@@ -306,7 +306,7 @@ const [show , setShow] = useState(false);
 ```jsx
 <b>{animateText("Hello World!",samples.other.drawborder())}</b>
 ```
-<img alt="demo" src="./src/otherdrawborder.gif" />
+<img alt="demo" src="./src/assets/otherdrawborder.gif" />
 </p>
 </details>
 
