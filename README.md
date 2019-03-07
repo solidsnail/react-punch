@@ -119,6 +119,17 @@ Or on the whole word
 <img alt="demo" src="./src/animatetextword.gif" />
 </details>
 
+<details><summary>AnimationGroup</summary>
+
+A component that toggles an animation on its children according to the show property
+```jsx
+const [show , setShow] = useState(false);
+<button onClick={() => setShow(!show)}>Toggle</button>
+<AnimationGroup timeout={0} show={show}><div /></AnimationGroup>
+```
+<img alt="demo" src="./src/animationgroup.gif" />
+</details>
+
 ## Samples
 ### Entrance
 
