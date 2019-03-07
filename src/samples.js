@@ -750,8 +750,8 @@ export default {
             })
         },
     },
-    border: {
-        draw: (color = "grey", side = "all", thickness = 3, duration = 2000) => {
+    other: {
+        drawborder: (color = "grey", side = "all", thickness = 3, duration = 2000) => {
             const frames = {
                 all: {
                     "0%": {

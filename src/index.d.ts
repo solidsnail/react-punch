@@ -1,3 +1,4 @@
+import React from "react";
 import { Interpolation, CSSObject } from "create-emotion";
 
 
@@ -16,6 +17,7 @@ declare module "react-punch" {
         loop: number | "infinite",
         mode: TMode,
         direction: TDirection,
+        delay: number;
     }
     export function animateElement(
         element: React.ReactElement,
@@ -79,8 +81,8 @@ declare module "react-punch" {
             rainbow(colors: string[], duration: number): void,
             gradient(colors: [string, string], angle: number, duration: number): void,
         },
-        border: {
-            draw(color: string, side: "all" | "top" | "right" | "bottom" | "left", thickness: number, duration: number): void,
+        other: {
+            drawborder(color: string, side: "all" | "top" | "right" | "bottom" | "left", thickness: number, duration: number): void,
         },
     }
     interface AnimationGroupProps {
