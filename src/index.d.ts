@@ -55,7 +55,14 @@ declare module "react-punch" {
             slide(direction: "top" | "bottom" | "left" | "right", distance: number, easing: TEasing, duration: number, loop: number): void,
         },
         exit: {
-
+            fade(easing: TEasing, duration: number, loop: number): void,
+            flyin(direction: "top" | "bottom" | "left" | "right", distance: number, easing: TEasing, duration: number, loop: number): void,
+            split(direction: "vertical" | "horizontal", easing: TEasing, duration: number, loop: number): void,
+            wipe(direction: "top" | "bottom" | "left" | "right", color: string, easing: TEasing, duration: number, loop: number): void,
+            shape(type: "triangle" | "rhombus" | "pentagon" | "hexagon" | "heptagon" | "close" | "star", easing: TEasing, duration: number, loop: number): void,
+            zoom(direction: "center" | "top" | "bottom" | "left" | "right", distance: number, easing: TEasing, duration: number, loop: number): void,
+            flip(direction: "vertical" | "horizontal", easing: TEasing, duration: number, loop: number): void,
+            slide(direction: "top" | "bottom" | "left" | "right", distance: number, easing: TEasing, duration: number, loop: number): void,
         },
         emphasis: {
             bounce(distance: number, easing: TEasing, duration: number, loop: number): void,

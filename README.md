@@ -63,3 +63,39 @@ import { animateText, samples } from "react-punch";
 <img alt="header" src="./src/textwipe.gif" />
 </p>
 </details>
+
+<details><summary>Shape</summary>
+
+```jsx
+<b>{animateText("Hello World!",samples.entrance.shape())}</b>
+```
+<img alt="header" src="./src/textshape.gif" />
+</p>
+</details>
+
+<details><summary>Zoom</summary>
+
+```jsx
+<b>{animateText("Hello World!",samples.entrance.zoom())}</b>
+```
+<img alt="header" src="./src/textzoom.gif" />
+</p>
+</details>
+
+<details><summary>Flip</summary>
+
+```jsx
+<b>{animateText("Hello World!",samples.entrance.flip())}</b>
+```
+<img alt="header" src="./src/textflip.gif" />
+</p>
+</details>
+
+<details><summary>Slide</summary>
+
+```jsx
+<b>{animateText("Hello World!",samples.entrance.slide())}</b>
+```
+<img alt="header" src="./src/textslide.gif" />
+</p>
+</details>

@@ -260,7 +260,264 @@ export default {
         },
     },
     exit: {
-
+        fade: (easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000, loop = 1) => {
+            return ({
+                frames: {
+                    to: { opacity: 0 },
+                    from: { opacity: 1 },
+                },
+                duration,
+                easing,
+                mode: "both",
+                direction: "alternate",
+                loop,
+            })
+        },
+        flyin: (direction = "top", distance = 200, easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 500, loop = 1) => {
+            const translateFrom = {
+                top: `translateY(${distance}px)`,
+                bottom: `translateY(${-distance}px)`,
+                left: `translateX(${distance}px)`,
+                right: `translateX(${-distance}px)`,
+            }
+            const translateTo = {
+                top: `translateY(0px)`,
+                bottom: `translateY(0px)`,
+                left: `translateX(0px)`,
+                right: `translateX(0px)`,
+            }
+            return ({
+                frames: {
+                    to: {
+                        clipPath: `inset(${direction === "bottom" ? 100 : 0}% ${direction === "left" ? 100 : 0}% ${direction === "top" ? 100 : 0}% ${direction === "right" ? 100 : 0}%)`,
+                        transform: translateFrom[direction]
+                    },
+                    from: {
+                        clipPath: `inset(0% 0% 0% 0%)`,
+                        transform: translateTo[direction]
+                    },
+                },
+                duration,
+                mode: "both",
+                easing,
+                direction: "alternate",
+                loop,
+            })
+        },
+        split: (direction = "vertical", easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000, loop = 1) => {
+            const translateFrom = {
+                vertical: `inset(50% 0% 50% 0%)`,
+                horizontal: `inset(0% 50% 0% 50%)`,
+            }
+            const translateTo = {
+                vertical: `inset(0% 0% 0% 0%)`,
+                horizontal: `inset(0% 0% 0% 0%)`,
+            }
+            return ({
+                frames: {
+                    to: {
+                        clipPath: translateFrom[direction]
+                    },
+                    from: {
+                        clipPath: translateTo[direction]
+                    },
+                },
+                duration,
+                mode: "both",
+                easing,
+                loop,
+            })
+        },
+        wipe: (direction = "top", color = "black", easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 3000, loop = 1) => {
+            const translate = {
+                top: (i) => `linear-gradient(to top, ${color}, transparent ${i * 3}%)`,
+                bottom: (i) => `linear-gradient(to bottom, ${color}, transparent ${i * 3}%)`,
+                left: (i) => `linear-gradient(to left, ${color}, transparent ${i * 3}%)`,
+                right: (i) => `linear-gradient(to right, ${color}, transparent ${i * 3}%)`,
+            }
+            const frames = {};
+            for (let i = 0; i <= 100; i++) {
+                frames[`${i}%`] = {
+                    background: i === 0 ? "transparent" : translate[direction](i),
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent'
+                }
+            }
+            return ({
+                frames,
+                duration,
+                easing,
+                mode: "both",
+                direction: "alternate",
+                loop,
+            })
+        },
+        shape: (type = "triangle", easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 2000, loop = 1) => {
+            const translateFrom = {
+                triangle: `polygon(50% 50%, 45% 65%, 55% 65%)`,
+                rhombus: `polygon(50% 45%, 55% 50%, 50% 55%, 45% 50%)`,
+                pentagon: `polygon(50% 25%, 65% 40%, 60% 55%, 40% 55%, 35% 40%)`,
+                hexagon: `polygon(50% 30%, 65% 45%, 65% 55%, 50% 70%, 35% 55%, 35% 40%)`,
+                star: `polygon(50% 20%, 55% 35%, 70% 40%, 60% 45%, 65% 60%, 50% 55%, 35% 60%, 40% 45%, 30% 40%, 45% 35%)`,
+            }
+            const translateTo = {
+                triangle: `polygon(50% -20%, -20% 100%, 120% 100%)`,
+                rhombus: `polygon(50% -20%, 120% 50%, 50% 120%, -20% 50%)`,
+                pentagon: `polygon(50% -20%, 120% 38%, 82% 120%, 18% 120%, -20% 38%)`,
+                hexagon: `polygon(50% -20%, 120% 25%, 120% 75%, 50% 120%, -20% 75%, -20% 25%)`,
+                star: `polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)`,
+            }
+            return ({
+                frames: {
+                    to: {
+                        clipPath: translateFrom[type]
+                    },
+                    from: {
+                        clipPath: translateTo[type]
+                    },
+                },
+                duration,
+                easing,
+                mode: "both",
+                direction: "alternate",
+                loop,
+            })
+        },
+        zoom: (direction = "center", distance = 100, easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000, loop = 1) => {
+            const translateFrom = {
+                center: `translate(0px,0px)`,
+                top: `translate(0px,${distance}px)`,
+                bottom: `translate(0px,${-distance}px)`,
+                left: `translate(${distance}px,0px)`,
+                right: `translate(${-distance}px,0px)`,
+            }
+            const translateTo = {
+                center: `translate(0px,0px)`,
+                top: `translate(0px,0px)`,
+                bottom: `translate(0px,0px)`,
+                left: `translate(0px,0px)`,
+                right: `translate(0px,0px)`,
+            }
+            const transformOrigin = {
+                center: `center center`,
+                top: `bottom center`,
+                bottom: `top center`,
+                left: `center right`,
+                right: `center left`,
+            }
+            return ({
+                frames: {
+                    to: {
+                        opacity: 0,
+                        transformOrigin: transformOrigin[direction],
+                        transform: `scale(0,0) ${translateFrom[direction]}`
+                    },
+                    from: {
+                        opacity: 1,
+                        transformOrigin: transformOrigin[direction],
+                        transform: `scale(1,1) ${translateTo[direction]}`
+                    },
+                },
+                duration,
+                mode: "both",
+                easing,
+                direction: "alternate",
+                loop,
+            })
+        },
+        bounce: (direction = "center", distance = 300, easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000, loop = 1) => {
+            const translateFrom = (d = null) => ({
+                center: `translate(0px,0px)`,
+                top: `translate(0px,${d || distance}px)`,
+                bottom: `translate(0px,${d || -distance}px)`,
+                left: `translate(${d || distance}px,0px)`,
+                right: `translate(${d || -distance}px,0px)`,
+            })
+            return ({
+                frames: {
+                    to: {
+                        opacity: 0,
+                        transform: translateFrom()[direction],
+                    },
+                    "60%": {
+                        opacity: 1,
+                        transform: translateFrom(25)[direction],
+                    },
+                    "75%": {
+                        transform: translateFrom(-10)[direction],
+                    },
+                    "90%": {
+                        transform: translateFrom(5)[direction],
+                    },
+                    from: {
+                        transform: "translate(0px,0px)",
+                    }
+                },
+                duration,
+                easing,
+                mode: "both",
+                direction: "alternate",
+                loop,
+            })
+        },
+        flip: (direction = "vertical", easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000, loop = 1) => {
+            const translateFrom = {
+                vertical: `perspective(400px) rotate3d(0, 1, 0, 90deg)`,
+                horizontal: `perspective(400px) rotate3d(1, 0, 0, 90deg)`,
+            }
+            const translateTo = {
+                vertical: `perspective(400px) rotate3d(0, 1, 0, 0deg)`,
+                horizontal: `perspective(400px) rotate3d(1, 0, 0, 0deg)`,
+            }
+            return ({
+                frames: {
+                    to: {
+                        opacity: 0,
+                        transform: translateFrom[direction],
+                    },
+                    from: {
+                        opacity: 1,
+                        transform: translateTo[direction],
+                    }
+                },
+                duration,
+                mode: "both",
+                direction: "alternate",
+                easing,
+                loop,
+            })
+        },
+        slide: (direction = "top", distance = 100, easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 500, loop = 1) => {
+            const translateFrom = {
+                top: `translateY(${distance}px)`,
+                bottom: `translateY(${-distance}px)`,
+                left: `translateX(${distance}px)`,
+                right: `translateX(${-distance}px)`,
+            }
+            const translateTo = {
+                top: `translateY(0px)`,
+                bottom: `translateY(0px)`,
+                left: `translateX(0px)`,
+                right: `translateX(0px)`,
+            }
+            return ({
+                frames: {
+                    to: {
+                        opacity: 0,
+                        transform: translateFrom[direction]
+                    },
+                    from: {
+                        opacity: 1,
+                        transform: translateTo[direction]
+                    },
+                },
+                duration,
+                mode: "both",
+                direction: "alternate",
+                easing,
+                loop,
+            })
+        },
     },
     emphasis: {
         bounce: (distance = 30, easing = "cubic-bezier(0.215, 0.61, 0.355, 1)", duration = 1000, loop = 1) => {
