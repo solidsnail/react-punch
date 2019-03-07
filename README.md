@@ -7,7 +7,7 @@
 </p>
 
 <p  align="center">
-<b>0.0.3c</b>
+<b>0.1.0</b>
 </p>
 
 ## Usage

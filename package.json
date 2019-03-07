@@ -1,6 +1,6 @@
 {
   "name": "react-punch",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "A kinetic typography library for ReactJS",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
