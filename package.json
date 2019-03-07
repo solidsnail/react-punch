@@ -1,14 +1,15 @@
 {
   "name": "react-punch",
-  "version": "0.0.1",
+  "version": "0.0.3c",
   "description": "👊Chainable animation hooks 👊",
   "main": "dist/index.js",
-  "types": "src/index.d.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "webpack --config ./webpack.config.lib.js -p"
+    "build": "webpack --config ./webpack.config.lib.js -p",
+    "prepublishOnly": "node prepublish.js"
   },
   "keywords": [
     "punch",
