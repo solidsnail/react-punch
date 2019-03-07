@@ -25,14 +25,14 @@ import { animateText, samples } from "react-punch";
 <img alt="header" src="./src/helloworld.gif" />
 </p>
 
+## Samples
+### Entrance
 
+<details><summary>Fade</summary>
 
-<details><summary>Code</summary>
-<p>
-
-```python
-print("hello world!")
+```jsx
+{animateText("Hello World!",samples.entrance.fade())}
 ```
-
+<img alt="header" src="./src/textfade.gif" />
 </p>
 </details>
