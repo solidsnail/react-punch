@@ -31,8 +31,35 @@ import { animateText, samples } from "react-punch";
 <details><summary>Fade</summary>
 
 ```jsx
-{animateText("Hello World!",samples.entrance.fade())}
+<b>{animateText("Hello World!",samples.entrance.fade())}</b>
 ```
 <img alt="header" src="./src/textfade.gif" />
+</p>
+</details>
+
+<details><summary>Flyin</summary>
+
+```jsx
+<b>{animateText("Hello World!",samples.entrance.flyin())}</b>
+```
+<img alt="header" src="./src/textflyin.gif" />
+</p>
+</details>
+
+<details><summary>Split</summary>
+
+```jsx
+<b>{animateText("Hello World!",samples.entrance.split())}</b>
+```
+<img alt="header" src="./src/textsplit.gif" />
+</p>
+</details>
+
+<details><summary>Wipe</summary>
+
+```jsx
+<b>{animateText("Hello World!",samples.entrance.wipe())}</b>
+```
+<img alt="header" src="./src/textwipe.gif" />
 </p>
 </details>

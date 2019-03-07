@@ -87,6 +87,7 @@ export default {
                 frames,
                 duration,
                 easing,
+                mode: "both",
                 direction: "alternate",
                 loop,
             })
@@ -117,6 +118,7 @@ export default {
                 },
                 duration,
                 easing,
+                mode: "both",
                 direction: "alternate",
                 loop,
             })
@@ -193,6 +195,7 @@ export default {
                 },
                 duration,
                 easing,
+                mode: "both",
                 direction: "alternate",
                 loop,
             })
