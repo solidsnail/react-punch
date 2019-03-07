@@ -3,14 +3,12 @@
   "version": "0.0.1",
   "description": "👊Chainable animation hooks 👊",
   "main": "dist/index.js",
-  "types": "src/lib/index.d.ts",
+  "types": "src/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.docs.js --mode development",
-    "build:docs": "webpack --config ./webpack.config.docs.js -p",
-    "build:lib": "webpack --config ./webpack.config.lib.js -p"
+    "build": "webpack --config ./webpack.config.lib.js -p"
   },
   "keywords": [
     "punch",
@@ -25,12 +23,10 @@
   "license": "MIT",
   "dependencies": {
     "emotion": "^9.2.12",
-    "polished": "^2.3.0",
     "react-addons-css-transition-group": "^15.6.2"
   },
   "peerDependencies": {
-    "react": "^16.8.1",
-    "react-dom": "^16.8.1"
+    "react": "^16.8.1"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
@@ -42,7 +38,6 @@
     "eslint-loader": "^2.1.1",
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-react-hooks": "^0.0.0",
-    "puppeteer": "^1.12.2",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "webpack": "^4.26.0",

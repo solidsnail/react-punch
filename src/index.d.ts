@@ -1,52 +1,30 @@
 import { Interpolation, CSSObject } from "create-emotion";
 
+interface IAnimation {
+    frames: {
+        from: Interpolation,
+        to: Interpolation,
+        [key: string]: Interpolation,
+    },
+    duration: number,
+    easing: "ease" | "ease-in" | "ease-out" | "ease-in-out" | "linear" | "step-start" | "step-end" | Function,
+    loop: number | "infinite",
+    mode: "none" | "forwards" | "backwards" | "both",
+    direction: "normal" | "reverse" | "alternate" | "alternate-reverse",
+}
 export function animateElement(
     element: React.ReactElement,
-    animation: {
-        frames: {
-            from: Interpolation,
-            to: Interpolation,
-            [key: string]: Interpolation,
-        },
-        duration: number,
-        delay: number,
-        easing: "ease" | "ease-in" | "ease-out" | "ease-in-out" | "linear" | "step-start" | "step-end" | Function,
-        loop: number | "infinite",
-        mode: "none" | "forwards" | "backwards" | "both",
-        direction: "normal" | "reverse" | "alternate" | "alternate-reverse",
-    }): Promise;
+    animation: IAnimation): Promise;
 export function animateText(
     text: string,
-    animation: {
-        frames: {
-            from: Interpolation,
-            to: Interpolation,
-            [key: string]: Interpolation,
-        },
-        duration: number,
-        easing: "ease" | "ease-in" | "ease-out" | "ease-in-out" | "linear" | "step-start" | "step-end" | Function,
-        loop: number | "infinite",
-        mode: "none" | "forwards" | "backwards" | "both",
-        direction: "normal" | "reverse" | "alternate" | "alternate-reverse",
-    },
+    animation: IAnimation,
     letter_delay: number,
     tag: keyof ReactHTML,
     delay: number,
     style: CSSObject,
 ): React.ReactElement;
 export function animateClass(
-    animation: {
-        frames: {
-            from: Interpolation,
-            to: Interpolation,
-            [key: string]: Interpolation,
-        },
-        duration: number,
-        easing: "ease" | "ease-in" | "ease-out" | "ease-in-out" | "linear" | "step-start" | "step-end" | Function,
-        loop: number | "infinite",
-        mode: "none" | "forwards" | "backwards" | "both",
-        direction: "normal" | "reverse" | "alternate" | "alternate-reverse",
-    } | {
+    animation: IAnimation | {
         frames: {
             from: Interpolation,
             to: Interpolation,
@@ -93,3 +71,11 @@ export const samples: {
         draw(color: string, side: "all" | "top" | "right" | "bottom" | "left", thickness: number, duration: number): void,
     },
 }
+interface AnimationGroupProps {
+    show: boolean;
+    animation: IAnimation;
+    isList: boolean;
+    style: React.CSSProperties;
+    timeout: number;
+}
+export const AnimationGroup: React.FunctionComponent<AnimationGroupProps>

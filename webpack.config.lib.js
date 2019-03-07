@@ -1,6 +1,6 @@
 
 module.exports = {
-    entry: __dirname + '/src/lib/index.js',
+    entry: __dirname + '/src/index.js',
     devtool: 'inline-source-map',
     module: {
         rules: [
@@ -14,15 +14,12 @@ module.exports = {
         ]
     },
     externals: {
-        'react': 'react',
-        'react-dom': 'react-dom',
-        'emotion': 'emotion',
-        'polished': 'polished'
+        'react': 'react'
     },
     output: {
         path: __dirname + '/dist',
         publicPath: '/',
-        library: 'copycat-ui',
+        library: 'react-punch',
         libraryTarget: 'umd',
         filename: 'index.js',
     },
