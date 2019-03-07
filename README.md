@@ -25,6 +25,26 @@ import { animateText, samples } from "react-punch";
 <img alt="header" src="./src/helloworld.gif" />
 </p>
 
+## API
+
+<details><summary>animateClass</summary>
+
+Triggers the animation on mount
+```jsx
+ <div
+        className={animateClass({
+          frames:{
+            from: { opacity: 0, transform: "scale(0,0)" },
+            to: { opacity: 1, transform: "scale(1,1)" },
+          },
+          easing: "cubic-bezier(0.0, 0.06, 0.05, 0.95)"
+        })}
+      />
+```
+<img alt="header" src="./src/animateclass.gif" />
+</p>
+</details>
+
 ## Samples
 ### Entrance
 
@@ -105,7 +125,7 @@ import { animateText, samples } from "react-punch";
 <details><summary>Fade</summary>
 
 ```jsx
-<b>{animateText("Hello World!",samples.entrance.fade())}</b>
+<b>{animateText("Hello World!",samplesexit.fade())}</b>
 ```
 <img alt="header" src="./src/textfadeexit.gif" />
 </p>
@@ -114,7 +134,7 @@ import { animateText, samples } from "react-punch";
 <details><summary>Flyin</summary>
 
 ```jsx
-<b>{animateText("Hello World!",samples.entrance.flyin())}</b>
+<b>{animateText("Hello World!",samplesexit.flyin())}</b>
 ```
 <img alt="header" src="./src/textflyinexit.gif" />
 </p>
@@ -123,7 +143,7 @@ import { animateText, samples } from "react-punch";
 <details><summary>Split</summary>
 
 ```jsx
-<b>{animateText("Hello World!",samples.entrance.split())}</b>
+<b>{animateText("Hello World!",samplesexit.split())}</b>
 ```
 <img alt="header" src="./src/textsplitexit.gif" />
 </p>
@@ -132,7 +152,7 @@ import { animateText, samples } from "react-punch";
 <details><summary>Wipe</summary>
 
 ```jsx
-<b>{animateText("Hello World!",samples.entrance.wipe())}</b>
+<b>{animateText("Hello World!",samplesexit.wipe())}</b>
 ```
 <img alt="header" src="./src/textwipeexit.gif" />
 </p>
@@ -141,7 +161,7 @@ import { animateText, samples } from "react-punch";
 <details><summary>Shape</summary>
 
 ```jsx
-<b>{animateText("Hello World!",samples.entrance.shape())}</b>
+<b>{animateText("Hello World!",samplesexit.shape())}</b>
 ```
 <img alt="header" src="./src/textshapeexit.gif" />
 </p>
@@ -150,7 +170,7 @@ import { animateText, samples } from "react-punch";
 <details><summary>Zoom</summary>
 
 ```jsx
-<b>{animateText("Hello World!",samples.entrance.zoom())}</b>
+<b>{animateText("Hello World!",samplesexit.zoom())}</b>
 ```
 <img alt="header" src="./src/textzoomexit.gif" />
 </p>
@@ -159,7 +179,7 @@ import { animateText, samples } from "react-punch";
 <details><summary>Flip</summary>
 
 ```jsx
-<b>{animateText("Hello World!",samples.entrance.flip())}</b>
+<b>{animateText("Hello World!",samplesexit.flip())}</b>
 ```
 <img alt="header" src="./src/textflipexit.gif" />
 </p>
@@ -168,8 +188,28 @@ import { animateText, samples } from "react-punch";
 <details><summary>Slide</summary>
 
 ```jsx
-<b>{animateText("Hello World!",samples.entrance.slide())}</b>
+<b>{animateText("Hello World!",samplesexit.slide())}</b>
 ```
 <img alt="header" src="./src/textslideexit.gif" />
+</p>
+</details>
+
+### Text
+
+<details><summary>Rainbow</summary>
+
+```jsx
+<b>{animateText("Hello World!",samples.text.rainbow())}</b>
+```
+<img alt="header" src="./src/textrainbow.gif" />
+</p>
+</details>
+
+<details><summary>Gradient</summary>
+
+```jsx
+<b>{animateText("Hello World!",samples.text.gradient())}</b>
+```
+<img alt="header" src="./src/textgradient.gif" />
 </p>
 </details>
